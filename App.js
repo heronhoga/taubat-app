@@ -1,10 +1,6 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import React, { Component } from "react";
-
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-
 import SplashScreen from "./pages/SplashScreen";
 import Home from "./pages/Home";
 import Main from "./pages/Main";
@@ -18,9 +14,11 @@ export default function App() {
         initialRouteName="SplashScreen"
         screenOptions={{ headerShown: false }}
       >
-        <Stack.Screen name="Home" component={Home} />
+        
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
-        <Stack.Screen name="Main" component={Main}/>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Main" component={Main} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

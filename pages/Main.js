@@ -1,21 +1,43 @@
-import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Platform } from "react-native";
-import { Preview, Doa, Profile } from "../pages";
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'; // Import your desired icon set
 
-import { StackActions } from "@react-navigation/native";
-import React, { Component } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
+import Preview from './Preview';
+import Doa from './Doa';
+import Profile from './Profile';
+
 const Tab = createBottomTabNavigator();
 
 export default function Main() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="" component={Preview} />
-        <Tab.Screen name="" component={Doa} />
-        <Tab.Screen name="" component={Profile} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <Tab.Navigator>
+      <Tab.Screen
+        name="Preview"
+        component={Preview}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 name="home" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Doa"
+        component={Doa}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 name="pray" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 name="user" color={color} size={size} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
   );
 }
