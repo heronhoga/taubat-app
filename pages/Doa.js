@@ -44,13 +44,13 @@ function Doa() {
     <View style={styles.container}>
       
       <TextInput
-        label="Search for Doa..."
+        label="Cari Doa..."
         value={searchText}
         onChangeText={(text) => {
           setSearchText(text);
           filterData(text);
         }}
-        style={styles.searchInput}
+        style={styles.searchBarContainer}
       />
       {isLoading ? (
         <Text>Loading...</Text>
@@ -74,41 +74,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  tinyLogo: {
-    width: 225,
-    height: 258,
-    transform: [{ scale: 0.5 }],
-    top: -20,
-  },
-  textAwal: {
-    backgroundColor: "#346072",
-    padding: 10,
-    textAlign: "justify",
-    marginBottom: 50,
-    color: "white",
-    fontSize: 17,
-    fontWeight: "bold",
-    top: -40,
-    marginLeft: 28,
-    marginRight: 28,
-  },
-  logoContainer: {
-    flex: 1, // Make the logo container take up all available vertical space
-    justifyContent: "flex-start", // Align the logo at the top
-    alignItems: "center",
-  },
-  headerExample: {
-    top: -50,
-    backgroundColor: "#3dabd9",
-    padding: 10,
-    textAlign: "justify",
-    marginBottom: 50,
-    color: "white",
-    fontSize: 17,
-    fontWeight: "bold",
-    marginLeft: 28,
-    marginRight: 28,
-  },
   listPrevStyle: {
     top: 10,
   },
@@ -128,11 +93,6 @@ const styles = StyleSheet.create({
     borderBottomColor: "transparent", // Remove the border at the bottom
     borderTopColor: "transparent", // Remove the border at the top
     borderWidth: 0, // Remove the border
-    borderRadius: 20, // Customize the border radius
-  },
-
-  searchBarInputContainer: {
-    backgroundColor: "white",
     borderRadius: 20, // Customize the border radius
   },
 });
