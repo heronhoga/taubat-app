@@ -4,28 +4,30 @@ import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 import Card from "../components/Card";
 import { useState, useEffect } from "react";
 import { FlatList } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 
 function Preview() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const navigation = useNavigation();
 
   useEffect(() => {
     // Replace 'YOUR_API_ENDPOINT' with the actual API endpoint
     fetch("https://doa-doa-api-ahmadramadhan.fly.dev/api")
-    .then((response) => response.json())
-    .then((data) => {
-      // Limit the data to the first 10 items
-      setData(data.slice(0, 10));
-      setIsLoading(false);
-    })
-    .catch((error) => {
-      console.error(error);
-      setIsLoading(false);
-    });
-}, []);
+      .then((response) => response.json())
+      .then((data) => {
+        // Limit the data to the first 10 items
+        setData(data.slice(0, 10));
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        setIsLoading(false);
+      });
+  }, []);
 
   const renderItem = ({ item }) => (
-    <Card title={item.doa} content={item.artinya} />
+    <Card title={item.doa}/>
   );
 
   return (
@@ -49,10 +51,9 @@ function Preview() {
           style={styles.listPrevStyle}
         />
       )}
-      <TouchableOpacity>
-        <Text>
-            Selengkapnya..
-        </Text>
+      <TouchableOpacity onPress={() => navigation.navigate('Doa')}>
+        <Text style={styles.listText
+        }>Selengkapnya..</Text>
       </TouchableOpacity>
     </View>
   );
@@ -100,7 +101,19 @@ const styles = StyleSheet.create({
     marginRight: 28,
   },
   listPrevStyle: {
-    top: -60
+    top: -60,
+  },
+  listText: {
+    backgroundColor: "#346072",
+    padding: 10,
+    textAlign: "justify",
+    color: "white",
+    fontSize: 17,
+    fontWeight: "bold",
+    top: -30,
+    marginLeft: 28,
+    marginRight: 28,
+    
   }
 });
 

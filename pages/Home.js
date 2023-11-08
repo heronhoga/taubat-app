@@ -1,10 +1,10 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
-import { useNavigation } from "@react-navigation/native"; // Import the useNavigation hook
+import { useNavigation } from "@react-navigation/native";
 import Main from "./Main";
 
 const Home = () => {
-  const navigation = useNavigation(); // Get the navigation object using useNavigation
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Image

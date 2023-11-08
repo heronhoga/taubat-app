@@ -1,10 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-const Card = ({ title }) => {
+const CardMain = ({ title, meaning }) => {
   return (
     <View style={styles.card}>
       <Text style={styles.title}>{title}</Text>
+      <Text style={styles.content}>{meaning}</Text>
+
     </View>
   );
 };
@@ -26,4 +28,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Card;
+export default CardMain;
