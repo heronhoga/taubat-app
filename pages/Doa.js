@@ -1,14 +1,17 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
-import Card from "../components/Card";
 import CardMain from "../components/CardMain";
 import { useState, useEffect } from "react";
 import { FlatList } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
+import { SearchBar } from "react-native-elements";
+import { TextInput } from "react-native-paper";
 
 function Doa() {
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]); // Filtered data based on user input
   const [isLoading, setIsLoading] = useState(true);
+  const [searchText, setSearchText] = useState(""); // User input for search
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -24,20 +27,38 @@ function Doa() {
       });
   }, []);
 
+  const filterData = (text) => {
+    console.log("Filtering with Text:", text);
+    const filtered = data.filter((item) =>
+      item.doa.toLowerCase().includes(text.toLowerCase())
+    );
+    console.log("Filtered Data:", filtered);
+    setFilteredData(filtered);
+  };
+
   const renderItem = ({ item }) => (
-    <CardMain title={item.doa} meaning={item.artinya}/>
+    <CardMain title={item.doa} meaning={item.artinya} />
   );
 
   return (
     <View style={styles.container}>
-
-
-      <Text style={styles.headerExample}>Daftar Doa</Text>
+      
+      <TextInput
+        label="Search for Doa..."
+        value={searchText}
+        onChangeText={(text) => {
+          setSearchText(text);
+          filterData(text);
+        }}
+        style={styles.searchInput}
+      />
       {isLoading ? (
         <Text>Loading...</Text>
+        
       ) : (
+        
         <FlatList
-          data={data}
+          data={searchText ? filteredData : data}
           keyExtractor={(item) => item.id.toString()}
           renderItem={renderItem}
           style={styles.listPrevStyle}
@@ -45,7 +66,6 @@ function Doa() {
       )}
     </View>
   );
-
 }
 
 const styles = StyleSheet.create({
@@ -90,7 +110,7 @@ const styles = StyleSheet.create({
     marginRight: 28,
   },
   listPrevStyle: {
-    top: -60,
+    top: 10,
   },
   listText: {
     backgroundColor: "#346072",
@@ -102,8 +122,19 @@ const styles = StyleSheet.create({
     top: -30,
     marginLeft: 28,
     marginRight: 28,
-    
-  }
+  },
+  searchBarContainer: {
+    backgroundColor: "transparent",
+    borderBottomColor: "transparent", // Remove the border at the bottom
+    borderTopColor: "transparent", // Remove the border at the top
+    borderWidth: 0, // Remove the border
+    borderRadius: 20, // Customize the border radius
+  },
+
+  searchBarInputContainer: {
+    backgroundColor: "white",
+    borderRadius: 20, // Customize the border radius
+  },
 });
 
 export default Doa;
