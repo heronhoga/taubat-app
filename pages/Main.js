@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'; // Import your desired icon set
-
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { StyleSheet } from 'react-native';
 import Preview from './Preview';
 import Doa from './Doa';
 import Profile from './Profile';
@@ -9,10 +9,12 @@ import Profile from './Profile';
 const Tab = createBottomTabNavigator();
 
 export default function Main() {
+
+  
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Preview"
+        name="Tentang aplikasi"
         component={Preview}
         options={{
           tabBarIcon: ({ color, size }) => (
@@ -41,3 +43,4 @@ export default function Main() {
     </Tab.Navigator>
   );
 }
+
