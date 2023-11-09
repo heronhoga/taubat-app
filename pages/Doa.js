@@ -36,13 +36,10 @@ function Doa() {
     setFilteredData(filtered);
   };
 
-  const renderItem = ({ item }) => (
-    <CardMain title={item.doa} meaning={item.artinya} />
-  );
+  const renderItem = ({ item }) => <CardMain data={item} />;
 
   return (
     <View style={styles.container}>
-      
       <TextInput
         label="Cari Judul Doa..."
         value={searchText}
@@ -54,9 +51,7 @@ function Doa() {
       />
       {isLoading ? (
         <Text>Loading...</Text>
-        
       ) : (
-        
         <FlatList
           data={searchText ? filteredData : data}
           keyExtractor={(item) => item.id.toString()}
