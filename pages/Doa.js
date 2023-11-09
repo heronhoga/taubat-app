@@ -44,7 +44,7 @@ function Doa() {
     <View style={styles.container}>
       
       <TextInput
-        label="Cari Doa..."
+        label="Cari Judul Doa..."
         value={searchText}
         onChangeText={(text) => {
           setSearchText(text);
