@@ -12,6 +12,7 @@ export default function Main() {
 
   
   return (
+    
     <Tab.Navigator>
       <Tab.Screen
         name="Tentang aplikasi"

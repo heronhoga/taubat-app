@@ -1,12 +1,14 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 
 const Home = () => {
   const navigation = useNavigation();
   return (
+    
     <View style={styles.container}>
+      
       <Image
         style={styles.tinyLogo}
         source={require("../assets/TAUBAT.png")}
@@ -14,7 +16,7 @@ const Home = () => {
       <Text style={styles.textAwal}>Aplikasi kumpulan doa sehari hari</Text>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Main')}>
+        onPress={() => navigation.replace('Main')}>
         <Text style={styles.buttonText}>Mulai</Text>
       </TouchableOpacity>
     </View>

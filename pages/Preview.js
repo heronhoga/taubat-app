@@ -1,6 +1,6 @@
 // Example Preview.js
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image, ImageBackground } from "react-native";
 import Card from "../components/Card";
 import { useState, useEffect } from "react";
 import { FlatList } from "react-native-gesture-handler";
@@ -31,6 +31,7 @@ function Preview() {
   );
 
   return (
+    
     <View style={styles.container}>
       <Image style={styles.tinyLogo} source={require("../assets/TAUBAT.png")} />
       <Text style={styles.textAwal}>

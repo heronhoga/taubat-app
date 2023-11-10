@@ -17,7 +17,7 @@ const Detail = ({ route }) => {
       <Text style={styles.detailText}>Latin: {latin}</Text>
       <Text style={styles.detailText}>Artinya: {artinya}</Text>
       <TouchableOpacity onPress={navigateToDoa}>
-        <Text>Kembali</Text>
+        <Text style={styles.backButton}>Kembali</Text>
       </TouchableOpacity>
     </View>
   );
@@ -31,15 +31,29 @@ const styles = StyleSheet.create({
       alignItems: "center", 
   },
   doaTitle: {
-    fontSize: 24,
+    fontSize: 40,
     fontWeight: "bold",
     marginBottom: 16,
+    borderWidth: 5,  // Border width in pixels
+    borderColor: 'black',  // Border color
+    borderRadius: 10,  // Border radius (optional)
     
   },
   detailText: {
     fontSize: 18,
     marginBottom: 8,
   },
+  backButton: {
+    backgroundColor: "#346072",
+    padding: 10,
+    textAlign: "justify",
+    color: "white",
+    fontSize: 17,
+    fontWeight: "bold",
+
+    marginLeft: 28,
+    marginRight: 28,
+  }
 });
 
 export default Detail;
