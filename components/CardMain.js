@@ -7,7 +7,7 @@ const CardMain = ({ data }) => {
   const { navigate } = useNavigation();
 
   const navigateToDetail = () => {
-    navigate("Detail", data); // Navigate to the "Detail" component
+    navigate("Detail", data);
   };
 
   return (

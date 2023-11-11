@@ -1,4 +1,3 @@
-// Example Preview.js
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image, ImageBackground } from "react-native";
 import Card from "../components/Card";
@@ -12,11 +11,9 @@ function Preview() {
   const navigation = useNavigation();
 
   useEffect(() => {
-    // Replace 'YOUR_API_ENDPOINT' with the actual API endpoint
     fetch("https://doa-doa-api-ahmadramadhan.fly.dev/api")
       .then((response) => response.json())
       .then((data) => {
-        // Limit the data to the first 10 items
         setData(data.slice(0, 10));
         setIsLoading(false);
       })
@@ -27,7 +24,7 @@ function Preview() {
   }, []);
 
   const renderItem = ({ item }) => (
-    <Card title={item.doa}/>
+    <Card data={item}/>
   );
 
   return (
@@ -85,8 +82,8 @@ const styles = StyleSheet.create({
     marginRight: 28,
   },
   logoContainer: {
-    flex: 1, // Make the logo container take up all available vertical space
-    justifyContent: "flex-start", // Align the logo at the top
+    flex: 1, 
+    justifyContent: "flex-start", 
     alignItems: "center",
   },
   headerExample: {

@@ -4,11 +4,11 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
 const Detail = ({ route }) => {
-  const { doa, ayat, latin, artinya } = route.params; // Get data from navigation parameters
+  const { doa, ayat, latin, artinya } = route.params;
     const { navigate } = useNavigation();
   
     const navigateToDoa = () => {
-      navigate("Doa"); // Navigate to the "Detail" component
+      navigate("Doa");
     };
   return (
     <View style={styles.container}>
@@ -34,9 +34,9 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: "bold",
     marginBottom: 16,
-    borderWidth: 5,  // Border width in pixels
-    borderColor: 'black',  // Border color
-    borderRadius: 10,  // Border radius (optional)
+    borderWidth: 5, 
+    borderColor: 'black',
+    borderRadius: 10,
     
   },
   detailText: {

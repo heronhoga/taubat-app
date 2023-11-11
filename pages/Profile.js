@@ -45,7 +45,7 @@ function Profile() {
 const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
-    resizeMode: "cover", // or 'stretch' or 'contain'
+    resizeMode: "cover", 
   },
   container: {
     flex: 1,
@@ -55,16 +55,16 @@ const styles = StyleSheet.create({
   profileImage: {
     width: 200,
     height: 200,
-    borderRadius: 100, // Make it a circle
+    borderRadius: 100, 
     marginBottom: 20,
   },
   headerText: {
     fontSize: 36,
     fontWeight: "bold",
 
-    borderWidth: 5, // Border width in pixels
-    borderColor: "white", // Border color
-    borderRadius: 10, // Border radius (optional)
+    borderWidth: 5, 
+    borderColor: "white", 
+    borderRadius: 10, 
     color: "white",
   },
   secondHeader:{
@@ -87,8 +87,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.85)', 
     borderRadius: 10, 
     padding: 10,
+    marginLeft: 10,
+    marginRight: 10
   }, baseText: {
-    fontWeight:"bold"
+    fontWeight:"bold",
+    justifyContent:"center",
+    textAlign:"justify"
   },
   id: {
     color: "white",

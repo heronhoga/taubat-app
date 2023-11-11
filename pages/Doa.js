@@ -1,18 +1,15 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import CardMain from "../components/CardMain";
 import { useState, useEffect } from "react";
 import { FlatList } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/native";
-import { SearchBar } from "react-native-elements";
 import { TextInput } from "react-native-paper";
 
 function Doa() {
   const [data, setData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]); // Filtered data based on user input
+  const [filteredData, setFilteredData] = useState([]); 
   const [isLoading, setIsLoading] = useState(true);
-  const [searchText, setSearchText] = useState(""); // User input for search
-  const navigation = useNavigation();
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetch("https://doa-doa-api-ahmadramadhan.fly.dev/api")
@@ -85,10 +82,10 @@ const styles = StyleSheet.create({
   },
   searchBarContainer: {
     backgroundColor: "transparent",
-    borderBottomColor: "transparent", // Remove the border at the bottom
-    borderTopColor: "transparent", // Remove the border at the top
-    borderWidth: 0, // Remove the border
-    borderRadius: 20, // Customize the border radius
+    borderBottomColor: "transparent",
+    borderTopColor: "transparent", 
+    borderWidth: 0, 
+    borderRadius: 20, 
   },
 });
 
