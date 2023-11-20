@@ -1,34 +1,41 @@
-// QuoteCard.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 
-const data = [
-  { id: '1', title: 'Card 1', content: 'Content for Card 1' },
-  { id: '2', title: 'Card 2', content: 'Content for Card 2' },
-  { id: '2', title: 'Card 2', content: 'Content for Card 2' },
-  { id: '2', title: 'Card 2', content: 'Content for Card 2' },
-  { id: '2', title: 'Card 2', content: 'Content for Card 2' },
-  { id: '2', title: 'Card 2', content: 'Content for Card 2' },
-  { id: '2', title: 'Card 2', content: 'Content for Card 2' },
-  { id: '2', title: 'Card 2', content: 'Content for Card 2' },
-];
-
 const QuoteCard = () => {
+  const [quotesData, setQuotesData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://type.fit/api/quotes');
+        const data = await response.json();
+        setQuotesData(data);
+      } catch (error) {
+        console.error('Error fetching quotes:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const cleanAuthor = (author) => {
+    return author.replace(', type.fit', '');
+  };
+
   const renderItem = ({ item }) => (
     <View style={styles.cardContainer}>
       <View style={styles.card}>
-        <Text style={styles.cardTitle}>{item.title}</Text>
-        <Text>{item.content}</Text>
+        <Text style={styles.cardAuthor}>{cleanAuthor(item.author)}</Text>
       </View>
     </View>
   );
 
   return (
     <FlatList
-      data={data}
+      data={quotesData}
       renderItem={renderItem}
-      keyExtractor={(item) => item.id}
-      numColumns={2} 
+      keyExtractor={(item, index) => index.toString()}
+      numColumns={2}
       contentContainerStyle={styles.listContainer}
     />
   );
@@ -45,13 +52,16 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: '#fff',
     padding: 16,
+    height: 100, 
+    justifyContent: 'center', 
+    alignItems: 'center',
     borderRadius: 8,
     borderWidth: 1,
     borderColor: '#ddd',
-    marginBottom: 8, // Tambahkan marginBottom untuk memberi jarak antara card
+    marginBottom: 8,
   },
-  cardTitle: {
-    fontSize: 18,
+  cardAuthor: {
+    fontSize: 14,
     fontWeight: 'bold',
     marginBottom: 8,
   },
