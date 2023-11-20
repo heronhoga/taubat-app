@@ -4,14 +4,12 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Preview from './Preview';
 import Doa from './Doa';
 import Profile from './Profile';
+import Quotes from './Quotes';
 
 const Tab = createBottomTabNavigator();
 
 export default function Main() {
-
-  
   return (
-    
     <Tab.Navigator>
       <Tab.Screen
         name="Tentang aplikasi"
@@ -32,6 +30,15 @@ export default function Main() {
         }}
       />
       <Tab.Screen
+        name="Quotes" 
+        component={Quotes} 
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 name="quote-left" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
         name="Profile"
         component={Profile}
         options={{
@@ -43,4 +50,3 @@ export default function Main() {
     </Tab.Navigator>
   );
 }
-
