@@ -1,12 +1,5 @@
-// QuoteCard.js
 import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
-
-const data = [
-  { id: '1', title: 'Card 1', content: 'Content for Card 1' },
-  { id: '2', title: 'Card 2', content: 'Content for Card 2' },
-  // ... tambahkan data card lainnya sesuai kebutuhan
-];
 
 const QuoteCard = () => {
   const renderItem = ({ item }) => (
@@ -23,7 +16,7 @@ const QuoteCard = () => {
       data={data}
       renderItem={renderItem}
       keyExtractor={(item) => item.id}
-      numColumns={2} // Menampilkan 2 card per baris
+      numColumns={2}
       contentContainerStyle={styles.listContainer}
     />
   );
@@ -44,8 +37,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 1,
     borderColor: '#ddd',
-    marginLeft: 8, // Tambahkan marginLeft untuk memberi jarak antara card
-    marginRight: 8, // Tambahkan marginRight untuk memberi jarak antara card
+    marginLeft: 8,
+    marginRight: 8,
     marginBottom: 8,
   },
   cardTitle: {

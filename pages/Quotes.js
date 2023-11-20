@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TouchableHighlight } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-const QuoteCard = () => {
+const Quotes = () => {
+  const navigation = useNavigation();
   const [quotesData, setQuotesData] = useState([]);
 
   useEffect(() => {
@@ -22,12 +24,21 @@ const QuoteCard = () => {
     return author.replace(', type.fit', '');
   };
 
+  const handleCardPress = (item) => {
+
+    navigation.navigate('DetailQuote', { quote: item });
+  };
+
   const renderItem = ({ item }) => (
-    <View style={styles.cardContainer}>
+    <TouchableHighlight
+      underlayColor="#eee"
+      onPress={() => handleCardPress(item)}
+      style={styles.cardContainer}
+    >
       <View style={styles.card}>
         <Text style={styles.cardAuthor}>{cleanAuthor(item.author)}</Text>
       </View>
-    </View>
+    </TouchableHighlight>
   );
 
   return (
@@ -50,14 +61,17 @@ const styles = StyleSheet.create({
     margin: 8,
   },
   card: {
+    flex: 1,
     backgroundColor: '#fff',
     padding: 16,
-    height: 100, 
-    justifyContent: 'center', 
+    height: 100,
+    justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 8,
     borderWidth: 1,
     borderColor: '#ddd',
+    marginLeft: 8,
+    marginRight: 8,
     marginBottom: 8,
   },
   cardAuthor: {
@@ -67,4 +81,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default QuoteCard;
+export default Quotes;
