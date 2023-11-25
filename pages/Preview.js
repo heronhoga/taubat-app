@@ -32,24 +32,12 @@ function Preview() {
     <View style={styles.container}>
       <Image style={styles.tinyLogo} source={require("../assets/TAUBAT.png")} />
       <Text style={styles.textAwal}>
-        TAUBAT adalah aplikasi yang digunakan untuk mengingat bacaan doa
-        sehari-hari. Aplikasi ini berguna terutama jika sedang bepergian ke luar
-        rumah agar tetap ingat bacaan doa ketika melakukan berbagai kegiatan.
-        Tujuan dari dibuatnya aplikasi ini adalah sebagai pengingat bagi umat
-        muslim yang sedang beraktivitas, khususnya saya (Hoga) sendiri.
+        TAUBAT adalah aplikasi yang digunakan untuk mengingat dosa-dosa yang harus dihindari.
+        Sebagai umat muslim yang taat, kita harus bisa menjaga diri dari godaan dunia. Di dalam
+        Aplikasi ini terdapat beberapa dosa yang harus dihindari.
       </Text>
-      <Text style={styles.headerExample}>Beberapa doa:</Text>
-      {isLoading ? (
-        <Text>Loading...</Text>
-      ) : (
-        <FlatList
-          data={data}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={renderItem}
-          style={styles.listPrevStyle}
-        />
-      )}
-      <TouchableOpacity onPress={() => navigation.navigate('Doa')}>
+
+      <TouchableOpacity onPress={() => navigation.navigate('Dosa')}>
         <Text style={styles.listText
         }>Selengkapnya..</Text>
       </TouchableOpacity>

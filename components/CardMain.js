@@ -13,8 +13,7 @@ const CardMain = ({ data }) => {
   return (
     <TouchableOpacity onPress={navigateToDetail}>
       <View style={styles.card}>
-        <Text style={styles.title}>{data.doa}</Text>
-        <Text style={styles.content}>{data.artinya}</Text>
+        <Text style={styles.title}>{data.dosa}</Text>
       </View>
     </TouchableOpacity>
   );

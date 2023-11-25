@@ -21,7 +21,7 @@ export default function Main() {
         }}
       />
       <Tab.Screen
-        name="Doa"
+        name="Dosa"
         component={Doa}
         options={{
           tabBarIcon: ({ color, size }) => (

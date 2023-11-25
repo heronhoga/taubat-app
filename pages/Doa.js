@@ -12,7 +12,7 @@ function Doa() {
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
-    fetch("https://doa-doa-api-ahmadramadhan.fly.dev/api")
+    fetch("https://my-json-server.typicode.com/heronhoga/dosadunia/daftardosa")
       .then((response) => response.json())
       .then((data) => {
         setData(data);
@@ -27,7 +27,7 @@ function Doa() {
   const filterData = (text) => {
     console.log("Filtering with Text:", text);
     const filtered = data.filter((item) =>
-      item.doa.toLowerCase().includes(text.toLowerCase())
+      item.dosa.toLowerCase().includes(text.toLowerCase())
     );
     console.log("Filtered Data:", filtered);
     setFilteredData(filtered);
@@ -38,7 +38,7 @@ function Doa() {
   return (
     <View style={styles.container}>
       <TextInput
-        label="Cari Judul Doa..."
+        label="Cari Judul Dosa..."
         value={searchText}
         onChangeText={(text) => {
           setSearchText(text);

@@ -13,7 +13,7 @@ const Home = () => {
         style={styles.tinyLogo}
         source={require("../assets/TAUBAT.png")}
       />
-      <Text style={styles.textAwal}>Aplikasi kumpulan doa sehari hari</Text>
+      <Text style={styles.textAwal}>Aplikasi kumpulan dosa</Text>
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.replace('Main')}>

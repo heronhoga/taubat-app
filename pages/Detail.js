@@ -4,18 +4,16 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
 const Detail = ({ route }) => {
-  const { doa, ayat, latin, artinya } = route.params;
+  const { dosa, penjelasan } = route.params;
     const { navigate } = useNavigation();
   
     const navigateToDoa = () => {
-      navigate("Doa");
+      navigate("Dosa");
     };
   return (
     <View style={styles.container}>
-      <Text style={styles.doaTitle}>{doa}</Text>
-      <Text style={styles.detailText}>Ayat: {ayat}</Text>
-      <Text style={styles.detailText}>Latin: {latin}</Text>
-      <Text style={styles.detailText}>Artinya: {artinya}</Text>
+      <Text style={styles.doaTitle}>{dosa}</Text>
+      <Text style={styles.detailText}>Penjelasan: {penjelasan}</Text>
       <TouchableOpacity onPress={navigateToDoa}>
         <Text style={styles.backButton}>Kembali</Text>
       </TouchableOpacity>
